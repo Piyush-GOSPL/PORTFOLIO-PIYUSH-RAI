@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Terminal } from "lucide-react";
+import { profileData } from "@/data/profile";
 
 interface IntroLoaderProps {
   onComplete: () => void;
@@ -18,13 +19,13 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ onComplete }) => {
           setTimeout(() => {
             setIsFinished(true);
             onComplete();
-          }, 400);
+          }, 350);
           return 100;
         }
-        const step = Math.floor(Math.random() * 12) + 6;
+        const step = Math.floor(Math.random() * 14) + 8;
         return Math.min(100, prev + step);
       });
-    }, 70);
+    }, 60);
 
     return () => clearInterval(interval);
   }, [onComplete]);
@@ -40,34 +41,34 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ onComplete }) => {
     <AnimatePresence>
       <motion.div
         initial={{ opacity: 1 }}
-        exit={{ opacity: 0, scale: 1.04, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }}
-        className="fixed inset-0 z-50 bg-[#FFFFFF] flex flex-col items-center justify-center p-6 select-none overflow-hidden"
+        exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } }}
+        className="fixed inset-0 z-50 bg-[#071426] flex flex-col items-center justify-center p-6 select-none overflow-hidden"
       >
-        {/* Subtle Cyber Grid Background */}
-        <div className="absolute inset-0 cyber-grid opacity-60 pointer-events-none" />
+        {/* Cyber Dark Grid Background */}
+        <div className="absolute inset-0 cyber-grid-dark opacity-60 pointer-events-none" />
 
         {/* Ambient Glows */}
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-[#0090D2]/15 via-[#00C8FF]/10 to-transparent rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute w-[600px] h-[600px] bg-gradient-to-tr from-[#168BFF]/20 via-[#00D4FF]/15 to-transparent rounded-full blur-3xl pointer-events-none animate-pulse" />
 
         <div className="relative z-10 flex flex-col items-center max-w-md w-full text-center">
-          {/* Rotating Metallic 3D Badge with Blue Glow */}
+          {/* Rotating Metallic 3D Badge with Cyan Rim */}
           <div className="relative w-28 h-28 mb-8 flex items-center justify-center">
             {/* Outer spinning ring */}
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border-2 border-dashed border-[#0090D2]/40"
+              className="absolute inset-0 rounded-full border border-dashed border-[#00D4FF]/40"
             />
             {/* Inner counter-spinning ring */}
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-2 rounded-full border border-t-[#00C8FF] border-r-transparent border-b-[#1263B5] border-l-transparent"
+              className="absolute inset-2 rounded-full border border-t-[#00D4FF] border-r-transparent border-b-[#168BFF] border-l-transparent"
             />
             {/* Chrome metallic center core */}
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-100 via-slate-300 to-slate-400 p-[1px] shadow-lg flex items-center justify-center border border-white">
-              <div className="w-full h-full rounded-2xl bg-gradient-to-br from-white via-slate-100 to-slate-200 flex items-center justify-center">
-                <Sparkles className="w-7 h-7 text-[#0090D2] animate-pulse" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 p-[1.5px] shadow-2xl flex items-center justify-center border border-white/20">
+              <div className="w-full h-full rounded-2xl bg-[#0B1930] flex items-center justify-center">
+                <Sparkles className="w-7 h-7 text-[#00D4FF] animate-pulse" />
               </div>
             </div>
           </div>
@@ -79,26 +80,29 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ onComplete }) => {
             transition={{ duration: 0.5 }}
             className="space-y-1.5"
           >
-            <h1 className="text-2xl md:text-3xl font-extrabold tracking-wider text-[#111827]">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider text-white font-heading">
               PIYUSH RAI
             </h1>
-            <p className="text-xs md:text-sm font-mono tracking-[0.25em] text-[#0090D2] font-semibold uppercase">
+            <p className="text-xs md:text-sm font-mono tracking-[0.25em] text-[#00D4FF] font-semibold uppercase">
               BEYOND DIGITAL
             </p>
-            <p className="text-xs text-slate-500 pt-1 font-mono">
-              Where Code Meets Infrastructure
+            <p className="text-xs text-[#A7B7CC] pt-1 font-mono">
+              Where Code Meets Enterprise Infrastructure
             </p>
           </motion.div>
 
           {/* Progress Bar & Percentage */}
           <div className="w-full mt-8 space-y-2">
-            <div className="flex justify-between items-center text-xs font-mono text-slate-500">
-              <span>SYSTEM INITIALIZING</span>
-              <span className="font-semibold text-[#1263B5]">{progress}%</span>
+            <div className="flex justify-between items-center text-xs font-mono text-[#A7B7CC]">
+              <span className="flex items-center gap-1.5">
+                <Terminal className="w-3.5 h-3.5 text-[#168BFF]" />
+                INITIALIZING CORE KERNEL
+              </span>
+              <span className="font-semibold text-[#00D4FF]">{progress}%</span>
             </div>
-            <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200/60 p-[1px]">
+            <div className="h-1.5 w-full bg-[#10243D] rounded-full overflow-hidden border border-white/10 p-[1px]">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#1263B5] via-[#0090D2] to-[#00C8FF] rounded-full"
+                className="h-full bg-gradient-to-r from-[#168BFF] via-[#00D4FF] to-white rounded-full"
                 style={{ width: `${progress}%` }}
                 transition={{ duration: 0.1 }}
               />
@@ -109,10 +113,10 @@ export const IntroLoader: React.FC<IntroLoaderProps> = ({ onComplete }) => {
           <div className="mt-8">
             <button
               onClick={handleSkip}
-              className="group inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono text-slate-500 hover:text-[#0090D2] border border-slate-200 hover:border-[#0090D2]/50 rounded-full transition-all duration-300 bg-white/80 backdrop-blur-sm"
+              className="group inline-flex items-center gap-2 px-4 py-2 text-xs font-mono text-[#A7B7CC] hover:text-white border border-white/10 hover:border-[#00D4FF]/50 rounded-full transition-all duration-300 bg-[#0B1930]/80 backdrop-blur-sm"
             >
               <span>Skip Intro</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform text-[#00D4FF]" />
             </button>
           </div>
         </div>

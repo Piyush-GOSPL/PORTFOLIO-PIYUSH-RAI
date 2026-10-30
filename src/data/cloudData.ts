@@ -140,3 +140,4 @@ export const cloudComponents: CloudComponent[] = [
     services: ["AWS RDS", "Azure SQL Database", "GCP Cloud SQL"]
   }
 ];
+

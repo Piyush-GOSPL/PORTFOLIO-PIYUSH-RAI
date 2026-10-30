@@ -4,104 +4,114 @@
 
 @layer base {
   * {
-    border-color: rgba(18, 99, 181, 0.12);
+    border-color: rgba(255, 255, 255, 0.12);
   }
   
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', sans-serif;
+    background-color: #071426;
+    color: #F1F5F9;
   }
 
   body {
-    background-color: #FFFFFF;
-    color: #111827;
+    background-color: #071426;
+    color: #F1F5F9;
     overflow-x: hidden;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
   ::selection {
-    background: #0090D2;
+    background: #168BFF;
     color: #FFFFFF;
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar for Dark Futuristic Theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F8FAFC;
+  background: #071426;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #1B3150;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0090D2;
+  background: #168BFF;
 }
 
-/* Futuristic Glass Utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+/* Dark Glassmorphism Utilities */
+.glass-card {
+  background: linear-gradient(135deg, rgba(16, 36, 61, 0.75) 0%, rgba(11, 25, 48, 0.85) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(18, 99, 181, 0.14);
-  box-shadow: 0 10px 30px -5px rgba(18, 99, 181, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 35px -8px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(22, 139, 255, 0.08);
 }
 
-.glass-panel-dark {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 200, 255, 0.25);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3), 0 0 30px -5px rgba(0, 144, 210, 0.2);
+.glass-card:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 0 25px -4px rgba(0, 212, 255, 0.2);
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(16, 36, 61, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(18, 99, 181, 0.16);
-  box-shadow: 0 4px 15px rgba(18, 99, 181, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .glass-pill:hover {
-  border-color: rgba(0, 144, 210, 0.4);
-  box-shadow: 0 6px 20px rgba(0, 144, 210, 0.15);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
 }
 
-/* Interactive Cyber Glows */
+/* Text Gradients */
 .text-gradient {
-  background: linear-gradient(135deg, #1263B5 0%, #0090D2 50%, #00C8FF 100%);
+  background: linear-gradient(135deg, #168BFF 0%, #00D4FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-subtle {
-  background: linear-gradient(135deg, #111827 0%, #1E3A8A 60%, #0090D2 100%);
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #00D4FF 0%, #38BDF8 60%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.cyber-grid {
+.text-gradient-silver {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 60%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cyber Dark Grids */
+.cyber-grid-dark {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(18, 99, 181, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(18, 99, 181, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(22, 139, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 139, 255, 0.08) 1px, transparent 1px);
 }
 
-.cyber-dots {
-  background-image: radial-gradient(rgba(18, 99, 181, 0.15) 1px, transparent 1px);
+.cyber-dots-dark {
+  background-image: radial-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Subtle Shimmer */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+/* Glow Borders */
+.border-glow-cyan {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 20px -3px rgba(0, 212, 255, 0.3);
 }
 
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
+.border-glow-blue {
+  border-color: rgba(22, 139, 255, 0.4);
+  box-shadow: 0 0 20px -3px rgba(22, 139, 255, 0.3);
 }

@@ -1,57 +1,48 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: '#FFFFFF',
-        surface: '#F8FAFC',
-        'surface-card': '#FFFFFF',
-        'primary-blue': '#1263B5',
-        'electric-blue': '#0090D2',
-        cyan: '#00C8FF',
-        'cyber-slate': '#0F172A',
-        dark: '#111827',
-        muted: '#64748B',
-        'glass-border': 'rgba(18, 99, 181, 0.12)',
-        'glass-hover': 'rgba(0, 144, 210, 0.18)',
+        background: '#071426',
+        'background-secondary': '#0B1930',
+        'card-bg': '#10243D',
+        'card-hover': '#152E4E',
+        'primary-blue': '#168BFF',
+        'electric-cyan': '#00D4FF',
+        'text-main': '#F1F5F9',
+        'text-secondary': '#A7B7CC',
+        'border-custom': 'rgba(255, 255, 255, 0.12)',
+        'border-glow': 'rgba(0, 212, 255, 0.35)',
       },
       fontFamily: {
-        sans: [
-          'SF Pro Display',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Inter',
-          'Segoe UI',
-          'Roboto',
-          'sans-serif',
-        ],
-        mono: ['SF Mono', 'Fira Code', 'JetBrains Mono', 'Consolas', 'monospace'],
+        heading: ['Space Grotesk', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       boxShadow: {
-        'glass-sm': '0 4px 20px -2px rgba(18, 99, 181, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
-        'glass-md': '0 12px 32px -4px rgba(18, 99, 181, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05)',
-        'glass-lg': '0 20px 48px -6px rgba(18, 99, 181, 0.16), 0 8px 24px -4px rgba(0, 200, 255, 0.12)',
-        'glow-blue': '0 0 35px -5px rgba(0, 144, 210, 0.4)',
-        'glow-cyan': '0 0 35px -5px rgba(0, 200, 255, 0.45)',
+        'glow-blue': '0 0 35px -5px rgba(22, 139, 255, 0.45)',
+        'glow-cyan': '0 0 35px -5px rgba(0, 212, 255, 0.45)',
+        'card-dark': '0 12px 35px -8px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(22, 139, 255, 0.1)',
+        'glass-dark': '0 20px 48px -10px rgba(3, 10, 20, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15)',
       },
       backgroundImage: {
-        'grid-pattern':
-          'radial-gradient(circle, rgba(18, 99, 181, 0.08) 1px, transparent 1px)',
-        'cyber-gradient':
-          'linear-gradient(135deg, #1263B5 0%, #0090D2 50%, #00C8FF 100%)',
-        'glass-gradient':
-          'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.7) 100%)',
+        'cyber-grid-dark':
+          'linear-gradient(to right, rgba(22, 139, 255, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(22, 139, 255, 0.08) 1px, transparent 1px)',
+        'hero-gradient':
+          'radial-gradient(circle at 50% 30%, rgba(22, 139, 255, 0.18) 0%, rgba(0, 212, 255, 0.08) 35%, transparent 70%)',
+        'card-gradient':
+          'linear-gradient(135deg, rgba(16, 36, 61, 0.85) 0%, rgba(11, 25, 48, 0.95) 100%)',
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
-        'float-slow': 'float 9s ease-in-out infinite',
-        pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-12px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
         pulseGlow: {
           '0%, 100%': { opacity: '0.4' },

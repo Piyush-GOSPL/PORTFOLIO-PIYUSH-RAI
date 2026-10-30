@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, FileText, Sparkles, Mail, Github, Linkedin, Terminal, Shield, Network, Server } from "lucide-react";
+import { ArrowDown, FileText, Sparkles, Mail, Github, Linkedin, Network, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { HeroCanvas } from "@/three/HeroScene/HeroCanvas";
 import { profileData } from "@/data/profile";
 
@@ -8,15 +8,43 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex items-center justify-center pt-24 pb-12 overflow-hidden bg-white"
+      className="relative min-h-screen w-full flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#071426]"
     >
-      {/* Background Cyber Grid & Radiant Lighting */}
-      <div className="absolute inset-0 cyber-grid opacity-75 pointer-events-none" />
+      {/* Background Cyber Grid & Radiant Network Glows */}
+      <div className="absolute inset-0 cyber-grid-dark opacity-60 pointer-events-none" />
 
-      {/* Radiant Gradient Halos (Subtle Apple-style lighting) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-b from-[#00C8FF]/10 via-[#0090D2]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-[#1263B5]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#00C8FF]/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Animated Blue Network Lines SVG overlay */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="netGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#168BFF" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#00D4FF" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#168BFF" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M -100 200 Q 300 100 600 350 T 1400 200"
+            fill="none"
+            stroke="url(#netGrad)"
+            strokeWidth="1.5"
+            strokeDasharray="8 6"
+            className="animate-pulse"
+          />
+          <path
+            d="M 100 600 Q 500 400 900 650 T 1600 500"
+            fill="none"
+            stroke="url(#netGrad)"
+            strokeWidth="1"
+            strokeDasharray="6 8"
+          />
+        </svg>
+      </div>
+
+      {/* Radiant Gradient Halos */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-hero-gradient pointer-events-none" />
+      <div className="absolute -top-20 -right-20 w-96 h-96 bg-[#168BFF]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#00D4FF]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Hero Typography & Call-To-Actions */}
@@ -26,69 +54,71 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7 flex flex-col justify-center space-y-6 pt-4 lg:pt-0"
         >
-          {/* Futuristic Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-mono text-slate-700 w-fit">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-semibold text-slate-900">AVAILABLE FOR OPPORTUNITIES</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-500">1–2 YRS EXP</span>
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-mono text-[#A7B7CC] w-fit">
+            <span className="w-2 h-2 rounded-full bg-[#00D4FF] animate-ping" />
+            <span className="font-semibold text-white">ENTERPRISE INFRASTRUCTURE & CODE</span>
+            <span className="text-white/20">•</span>
+            <span className="text-[#00D4FF]">ACTIVE</span>
           </div>
 
-          {/* Main Headline */}
-          <div className="space-y-2">
-            <h2 className="text-xs sm:text-sm font-mono tracking-[0.2em] uppercase font-bold text-[#1263B5]">
-              HELLO, I'M PIYUSH RAI
+          {/* Large Hero Heading: 64–76px Desktop, 38–44px Mobile */}
+          <div className="space-y-1">
+            <h2 className="text-xs sm:text-sm font-mono tracking-[0.25em] uppercase font-bold text-[#00D4FF]">
+              SYSTEM ARCHITECT & ENGINEER
             </h2>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#111827] leading-[1.1]">
-              BUILDING <span className="text-gradient">DIGITAL</span> EXPERIENCES.
-              <br />
-              CONNECTING <span className="text-gradient">TECHNOLOGIES</span>.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-extrabold tracking-tight text-white leading-[1.08] font-heading">
+              PIYUSH <span className="text-gradient">RAI</span>
             </h1>
           </div>
 
-          {/* Professional Titles */}
-          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-slate-600">
-            <div className="px-3 py-1 rounded-md bg-slate-100 border border-slate-200 font-semibold text-[#1263B5]">
-              FULL STACK DEVELOPER
-            </div>
-            <span className="text-slate-400">|</span>
-            <div className="px-3 py-1 rounded-md bg-blue-50 border border-blue-200 font-semibold text-[#0090D2]">
-              CLOUD & NETWORK ENGINEER
-            </div>
+          {/* Subtitle: Network Engineer | Full Stack Developer | Cloud & IT Infrastructure */}
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono">
+            <span className="px-3 py-1 rounded-lg bg-[#10243D] border border-white/10 font-semibold text-[#00D4FF]">
+              Network Engineer
+            </span>
+            <span className="text-[#A7B7CC]">•</span>
+            <span className="px-3 py-1 rounded-lg bg-[#10243D] border border-white/10 font-semibold text-[#168BFF]">
+              Full Stack Developer
+            </span>
+            <span className="text-[#A7B7CC]">•</span>
+            <span className="px-3 py-1 rounded-lg bg-[#10243D] border border-white/10 font-semibold text-white">
+              Cloud & IT Infrastructure
+            </span>
           </div>
 
           {/* Professional Description */}
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+          <p className="text-[#A7B7CC] text-base sm:text-lg leading-relaxed max-w-2xl font-sans">
             {profileData.bio}
           </p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons: Explore Projects & Download Resume */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
-              href="#projects"
-              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#1263B5] via-[#0090D2] to-[#00C8FF] text-white font-medium text-sm shadow-md hover:shadow-glow-blue transition-all duration-300 hover:scale-[1.02]"
+              href="#infra-projects"
+              className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#168BFF] to-[#00D4FF] text-white font-medium text-sm sm:text-base shadow-glow-cyan hover:shadow-glow-blue transition-all duration-300 hover:scale-[1.02]"
             >
-              <span>EXPLORE MY WORK</span>
+              <span>Explore Projects</span>
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
             <a
-              href={`mailto:${profileData.email}?subject=Resume%20Request%20-%20Piyush%20Rai`}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl glass-panel text-slate-800 font-medium text-sm hover:border-[#0090D2] hover:bg-blue-50/40 transition-all duration-300"
+              href={profileData.resumeDownloadUrl}
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl glass-card text-white font-medium text-sm sm:text-base hover:border-[#00D4FF] transition-all duration-300"
             >
-              <FileText className="w-4 h-4 text-[#1263B5]" />
-              <span>DOWNLOAD RESUME</span>
+              <FileText className="w-4 h-4 text-[#00D4FF]" />
+              <span>Download Resume</span>
             </a>
           </div>
 
-          {/* Social Links & Quick Specs */}
-          <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+          {/* Social Links & Verified Stats */}
+          <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <a
                 href={profileData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-600 hover:text-[#0090D2] hover:border-[#0090D2] transition-colors"
+                className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-[#A7B7CC] hover:text-[#00D4FF] hover:border-[#00D4FF] transition-colors"
                 title="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -97,35 +127,33 @@ export const HeroSection: React.FC = () => {
                 href={profileData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-600 hover:text-[#1263B5] hover:border-[#1263B5] transition-colors"
+                className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-[#A7B7CC] hover:text-[#168BFF] hover:border-[#168BFF] transition-colors"
                 title="GitHub"
               >
                 <Github className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${profileData.email}`}
-                className="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-slate-600 hover:text-[#00C8FF] hover:border-[#00C8FF] transition-colors"
+                className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-[#A7B7CC] hover:text-[#00D4FF] hover:border-[#00D4FF] transition-colors"
                 title="Email Me"
               >
                 <Mail className="w-4 h-4" />
               </a>
             </div>
 
-            <div className="flex items-center gap-6 text-xs font-mono text-slate-500">
-              <div>
-                <span className="font-bold text-slate-900 block text-base">6+</span>
-                <span>Platforms Live</span>
-              </div>
-              <div className="w-[1px] h-6 bg-slate-200" />
-              <div>
-                <span className="font-bold text-slate-900 block text-base">16+</span>
-                <span>Cisco Labs</span>
-              </div>
-              <div className="w-[1px] h-6 bg-slate-200" />
-              <div>
-                <span className="font-bold text-[#0090D2] block text-base">100%</span>
-                <span>Verified Code</span>
-              </div>
+            {/* Dynamic Verified Stats */}
+            <div className="flex items-center gap-6 text-xs font-mono text-[#A7B7CC]">
+              {profileData.stats.slice(0, 3).map((st, i) => (
+                <React.Fragment key={st.label}>
+                  {i > 0 && <div className="w-[1px] h-6 bg-white/10" />}
+                  <div>
+                    <span className="font-bold text-white block text-base font-heading">
+                      {st.value}
+                    </span>
+                    <span className="text-[11px] text-[#A7B7CC]">{st.label.split(" ")[0]}</span>
+                  </div>
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -135,15 +163,15 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.0, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-5 h-[420px] sm:h-[480px] lg:h-[580px] w-full relative flex items-center justify-center"
+          className="lg:col-span-5 h-[440px] sm:h-[500px] lg:h-[600px] w-full relative flex items-center justify-center"
         >
           {/* Chrome & Blue Glass 3D Sphere Canvas */}
           <div className="w-full h-full relative">
             <HeroCanvas />
 
-            {/* Subtle Interactive Instruction Pill */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 text-[10px] font-mono text-slate-500 shadow-sm pointer-events-none select-none">
-              Interactive 3D Sphere • Move mouse to tilt
+            {/* Interactive Instruction Pill */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#10243D]/80 backdrop-blur-md border border-white/10 text-[10px] font-mono text-[#A7B7CC] shadow-md pointer-events-none select-none">
+              Interactive 3D Sphere • Hover or drag to orbit
             </div>
           </div>
         </motion.div>
@@ -152,10 +180,10 @@ export const HeroSection: React.FC = () => {
       {/* Scroll Down Indicator */}
       <a
         href="#about"
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center text-slate-400 hover:text-[#1263B5] transition-colors group cursor-pointer z-20"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center text-[#A7B7CC] hover:text-[#00D4FF] transition-colors group cursor-pointer z-20"
       >
         <span className="text-[10px] font-mono tracking-widest uppercase mb-1">SCROLL</span>
-        <ArrowDown className="w-3.5 h-3.5 animate-bounce group-hover:text-[#0090D2]" />
+        <ArrowDown className="w-3.5 h-3.5 animate-bounce text-[#00D4FF]" />
       </a>
     </section>
   );

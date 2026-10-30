@@ -20,42 +20,40 @@ export const HeroCanvas: React.FC = () => {
         className="w-full h-full pointer-events-auto"
       >
         <Suspense fallback={null}>
-          {/* Key lights for Chrome & Glass reflections */}
-          <ambientLight intensity={1.2} />
+          <ambientLight intensity={0.9} />
           
-          {/* Primary Top Key Light */}
+          {/* Main Key Light */}
           <directionalLight
             position={[5, 8, 5]}
             intensity={2.2}
             color="#FFFFFF"
           />
 
-          {/* Electric Blue Rim Light 1 */}
+          {/* Electric Cyan Rim Light */}
           <pointLight
             position={[-4, 2, -3]}
-            intensity={4.5}
-            color="#0090D2"
+            intensity={4.8}
+            color="#00D4FF"
             distance={15}
           />
 
-          {/* Cyan Rim Light 2 */}
+          {/* Primary Blue Rim Light */}
           <pointLight
             position={[4, -3, 2]}
-            intensity={4.0}
-            color="#00C8FF"
+            intensity={4.2}
+            color="#168BFF"
             distance={15}
           />
 
           {/* Deep Navy Ground Reflection */}
           <pointLight
             position={[0, -5, -2]}
-            intensity={2.5}
-            color="#1263B5"
+            intensity={3.0}
+            color="#071426"
             distance={12}
           />
 
-          {/* Realistic Sky / Studio reflections */}
-          <Environment preset="city" />
+          <Environment preset="night" />
 
           {/* 3D Centerpiece Sphere */}
           <HeroSphere mouse={mouse} />
