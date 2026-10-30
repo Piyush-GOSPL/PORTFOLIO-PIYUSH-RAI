@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071426" />
+      <stop offset="100%" stop-color="#10243D" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#168BFF" />
+      <stop offset="100%" stop-color="#00D4FF" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="url(#bgGrad)" stroke="url(#cyanGrad)" stroke-width="4" />
+  <text x="50" y="62" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="38" font-weight="800" fill="url(#cyanGrad)" text-anchor="middle" letter-spacing="1">PR</text>
+  <circle cx="80" cy="24" r="5" fill="#00D4FF" />
+</svg>
