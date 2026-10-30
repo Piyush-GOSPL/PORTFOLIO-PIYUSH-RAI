@@ -290,3 +290,4 @@ export const WebProjectsSection: React.FC = () => {
     </section>
   );
 };
+

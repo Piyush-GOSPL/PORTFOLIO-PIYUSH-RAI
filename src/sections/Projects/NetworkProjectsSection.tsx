@@ -270,3 +270,4 @@ export const NetworkProjectsSection: React.FC = () => {
     </section>
   );
 };
+

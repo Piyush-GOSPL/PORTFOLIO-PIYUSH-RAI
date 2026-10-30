@@ -16,3 +16,4 @@ export const navLinks: NavLink[] = [
   { id: "certifications", name: "Certifications", href: "#certifications" },
   { id: "contact", name: "Contact", href: "#contact" }
 ];
+

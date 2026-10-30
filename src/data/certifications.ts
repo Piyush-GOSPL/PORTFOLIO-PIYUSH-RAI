@@ -79,3 +79,4 @@ export const certificationData: CertificationTrack[] = [
     coreTopics: ["Systemd Services", "Nginx Reverse Proxy", "UFW / Iptables", "File Permissions & ACLs", "SSH Key Hardening", "Bash Automation"]
   }
 ];
+
